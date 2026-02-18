@@ -12,7 +12,6 @@ class Employee(val name: String) {
             }
         }
 
-    // Hanya bisa diakses di dalam class ini saja
     private var performanceRating: Int = 3
 
     fun increasePerformance() {
