@@ -3,12 +3,15 @@ package oop_00000107564_osvaldourian.week3
 fun main() {
     val e = Employee("Budi")
 
-    println("--- Test Salary ---")
-    e.salary = -100
-    e.salary = 5000
+    // 1. Test Validasi Salary
+    e.salary = -1000   // Harusnya print Error
+    e.salary = 5000000
+    println("Gaji: ${e.salary}")
 
-    println("\n--- Test Performance ---")
-    e.printStatus()
+    // 2. Test Encapsulation
     e.increasePerformance()
-    e.printStatus()
+    // e.performanceRating = 5 // Coba uncomment, pasti Merah (Error)
+
+    // 3. Test Computed Property
+    println("Pajak yang harus dibayar: ${e.tax}")
 }
