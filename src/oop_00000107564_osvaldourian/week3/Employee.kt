@@ -4,8 +4,11 @@ class Employee(val name: String) {
 
     var salary: Int = 0
         set(value) {
-            println("Mencoba set gaji ke: $value")
-            // KODE SALAH (sengaja)
-            this.salary = value   // ini memanggil setter lagi → infinite recursion
+            if (value < 0) {
+                println("ERROR: Gaji tidak boleh negatif! Di-set ke 0.")
+                field = 0
+            } else {
+                field = value
+            }
         }
 }
