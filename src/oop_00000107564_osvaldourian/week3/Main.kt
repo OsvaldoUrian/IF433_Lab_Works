@@ -13,4 +13,18 @@ fun main() {
 
     // 3. Test Computed Property
     println("Pajak yang harus dibayar: ${e.tax}")
+
+    println("\n=== TEST WEAPON ===")
+
+    val weapon = Weapon("Excalibur", 900)
+
+    // Damage negatif (harus gagal)
+    weapon.damage = -50
+
+    // Damage overpowered (harus jadi 1000)
+    weapon.damage = 9999
+
+    println("Weapon: ${weapon.name}")
+    println("Damage: ${weapon.damage}")
+    println("Tier: ${weapon.tier}")
 }
