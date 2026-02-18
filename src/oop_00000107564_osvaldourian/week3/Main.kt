@@ -16,7 +16,7 @@ fun main() {
 
     println("\n=== TEST WEAPON ===")
 
-    val weapon = Weapon("Excalibur", 900)
+    val weapon = Weapon("Excalibur", 9000)
 
     // Damage negatif (harus gagal)
     weapon.damage = -50
@@ -27,4 +27,14 @@ fun main() {
     println("Weapon: ${weapon.name}")
     println("Damage: ${weapon.damage}")
     println("Tier: ${weapon.tier}")
+
+    println("\n=== TEST PLAYER ===")
+
+    val player = Player("Osvaldo")
+
+    player.addXp(50)   // masih level 1
+    println("Level sekarang: ${player.level}")
+
+    player.addXp(60)   // total 110 -> harus naik ke level 2
+    println("Level sekarang: ${player.level}")
 }
