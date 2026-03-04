@@ -5,23 +5,18 @@ fun main() {
     val dosen1 = Dosen(nama = "Pak Alex", nidn = "0123456")
     val admin1 = Admin(nama = "Bu Siti")
 
-    // Polymorphic Collection: List yang berisi tipe Parent, tapi isinya objek Anak
     val daftarPegawai: List<Pegawai> = listOf(dosen1, admin1)
 
     println("=== AKTIVITAS PEGAWAI ===")
 
     for (pegawai in daftarPegawai) {
-
-        // Pemanggilan Runtime Polymorphism
         pegawai.bekerja()
 
-        // Smart Casting dengan is dan when
         when (pegawai) {
             is Dosen -> {
                 println("=> Terdeteksi sebagai Dosen (NIDN: ${pegawai.nidn})")
                 pegawai.mengajar()
             }
-
             is Admin -> {
                 println("=> Terdeteksi sebagai Admin")
                 pegawai.doAdminWork()
@@ -31,6 +26,7 @@ fun main() {
         println("----------------------------")
     }
 
+    // CHECKPOINT 6: Test MathHelper Overloading
     println("\n=== UJI MATHHELPER (OVERLOADING) ===")
     val math = MathHelper()
 
@@ -42,4 +38,16 @@ fun main() {
 
     val luasLingkaran = math.hitungLuas(3.5)
     println("Luas Lingkaran (r=3.5): $luasLingkaran")
+
+    // CHECKPOINT 10: Payment Polymorphism
+    println("\n=== SISTEM PEMBAYARAN ===")
+    val ewallet = EWallet(accountName = "Osvaldo", balance = 50000.0)
+    val creditCard = CreditCard(accountName = "Osvaldo", limit = 100000.0)
+
+    val daftarPembayaran: List<PaymentMethod> = listOf(ewallet, creditCard)
+
+    for (metode in daftarPembayaran) {
+        metode.processPayment(75000.0)
+        println("----------------------------")
+    }
 }
