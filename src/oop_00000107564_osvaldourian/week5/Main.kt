@@ -39,7 +39,7 @@ fun main() {
     val luasLingkaran = math.hitungLuas(3.5)
     println("Luas Lingkaran (r=3.5): $luasLingkaran")
 
-    // CHECKPOINT 10: Payment Polymorphism
+    // CHECKPOINT 10 & 11: Payment Polymorphism + Smart Casting
     println("\n=== SISTEM PEMBAYARAN ===")
     val ewallet = EWallet(accountName = "Osvaldo", balance = 50000.0)
     val creditCard = CreditCard(accountName = "Osvaldo", limit = 100000.0)
@@ -48,6 +48,14 @@ fun main() {
 
     for (metode in daftarPembayaran) {
         metode.processPayment(75000.0)
+
+        // CHECKPOINT 11: Smart Casting Challenge
+        if (metode is EWallet) {
+            println("=> Terdeteksi EWallet, melakukan top up otomatis...")
+            metode.topUp(50000.0)
+            metode.processPayment(75000.0)
+        }
+
         println("----------------------------")
     }
 }
