@@ -12,7 +12,19 @@ class SmartHomeHub {
         println("\n--- Mematikan semua perangkat ---")
         for (device in devices) {
             if (device is Switchable) {
-                device.turnOff() // smart cast otomatis jadi Switchable
+                device.turnOff()
+            }
+        }
+    }
+
+    fun activateSecurityMode() {
+        println("\n--- Mode Keamanan Aktif! ---")
+        for (device in devices) {
+            if (device is Recordable) {
+                device.startRecord()
+            }
+            if (device is SmartSpeaker) {
+                device.playMusic("Sirine Peringatan")
             }
         }
     }
