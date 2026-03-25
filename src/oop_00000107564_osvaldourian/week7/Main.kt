@@ -32,14 +32,15 @@ fun main() {
     val (userName, userAge) = data1
     println("Destructured: $userName berumur $userAge")
 
-    // === CHECKPOINT 10: TEST SEALED CLASS (TRIAL - SENGAJA ERROR) ===
+    // === CHECKPOINT 11: TEST SEALED CLASS (FIXED) ===
     println("\n=== TEST SEALED CLASS ===")
     val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik!")
 
-    // ERROR: 'when' expression must be exhaustive (Loading belum ditangani)
+    // ✅ Sekarang exhaustive, semua state ditangani
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
         is ApiResponse.Error -> "Munculkan alert: ${response.message}"
-        // ❌ ApiResponse.Loading belum ditambahkan, ini sengaja error!
+        is ApiResponse.Loading -> "Tampilkan Spinner" // ✅ Fix!
     }
+    println(uiMessage)
 }
