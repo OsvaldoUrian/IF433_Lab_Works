@@ -32,15 +32,18 @@ fun main() {
     val (userName, userAge) = data1
     println("Destructured: $userName berumur $userAge")
 
-    // === CHECKPOINT 11: TEST SEALED CLASS (FIXED) ===
+    // === CHECKPOINT 11: TEST SEALED CLASS ===
     println("\n=== TEST SEALED CLASS ===")
     val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik!")
-
-    // ✅ Sekarang exhaustive, semua state ditangani
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
         is ApiResponse.Error -> "Munculkan alert: ${response.message}"
-        is ApiResponse.Loading -> "Tampilkan Spinner" // ✅ Fix!
+        is ApiResponse.Loading -> "Tampilkan Spinner"
     }
     println(uiMessage)
+
+    // === CHECKPOINT 18: TEST GAME MANAGER SINGLETON ===
+    println("\n=== TEST GAME MANAGER SINGLETON ===")
+    GameManager.startGame() // Panggilan pertama → mulai game
+    GameManager.startGame() // Panggilan kedua → ditolak singleton!
 }
