@@ -29,7 +29,17 @@ fun main() {
     println("\n=== TEST COPY & DESTRUCTURING ===")
     val data3 = data1.copy(age = 23)
     println("Hasil Copy: $data3")
-
-    val (userName, userAge) = data1 // Destructuring Declaration
+    val (userName, userAge) = data1
     println("Destructured: $userName berumur $userAge")
+
+    // === CHECKPOINT 10: TEST SEALED CLASS (TRIAL - SENGAJA ERROR) ===
+    println("\n=== TEST SEALED CLASS ===")
+    val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik!")
+
+    // ERROR: 'when' expression must be exhaustive (Loading belum ditangani)
+    val uiMessage = when(response) {
+        is ApiResponse.Success -> "Tampilkan: ${response.data}"
+        is ApiResponse.Error -> "Munculkan alert: ${response.message}"
+        // ❌ ApiResponse.Loading belum ditambahkan, ini sengaja error!
+    }
 }
