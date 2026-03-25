@@ -46,4 +46,14 @@ fun main() {
     println("\n=== TEST GAME MANAGER SINGLETON ===")
     GameManager.startGame() // Panggilan pertama → mulai game
     GameManager.startGame() // Panggilan kedua → ditolak singleton!
+
+    // === CHECKPOINT 19: TEST RARITY & FACTORY ===
+    println("\n=== TEST RARITY & FACTORY ===")
+
+    // Cetak drop chance LEGENDARY
+    println("Drop Chance LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}%")
+
+    // Buat senjata awal lewat Factory
+    val starterSword = Weapon.forgeStarterSword()
+    println("Senjata Awal: $starterSword")
 }
