@@ -1,4 +1,4 @@
-package oop_00000107564_osvaldourian.week8
+package oop_00000107564_osvaldourian.week08
 
 class set_krs(val nim: String, val tahun: Int?) {
     fun pilih_matkul(kodeMatkul: String?) {
