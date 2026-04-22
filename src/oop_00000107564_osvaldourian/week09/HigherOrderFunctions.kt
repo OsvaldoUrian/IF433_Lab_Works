@@ -15,4 +15,10 @@ fun main() {
     val asStrings = multiplied.map { "Rp ${it}k" }
     println("Multiplied: $multiplied")
     println("Formatted: $asStrings")
+
+    println("\n=== HOF: SORTED & FOREACH ===")
+    val sortedDesc = numbers.sortedByDescending { it }
+    println("Sorted Descending: $sortedDesc")
+
+    sortedDesc.forEach { println("Item: $it") }
 }
